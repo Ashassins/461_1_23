@@ -29,11 +29,11 @@ COPY . /app
 RUN go mod download \
     && go mod verify
 
-RUN go build -o todo -a .
+RUN go build -o url -a .
 
 FROM alpine:latest as prod
 
-COPY --from=builder /app/todo /usr/local/bin/todo
+COPY --from=builder /app/url /usr/local/bin/url
 EXPOSE 5000
 
-ENTRYPOINT ["/usr/local/bin/todo"]
+ENTRYPOINT ["/usr/local/bin/url"]

@@ -1,10 +1,9 @@
+// database/connect.go
 package database
 
 import (
     "fmt"
     "strconv"
-
-    "github.com/pachecoio/go-todo/config"
 
     "github.com/jinzhu/gorm"
 	_ "github.com/lib/pq"

@@ -1,4 +1,5 @@
-package entity 
+// url/models.go
+package url 
 
 import {
 	"time"

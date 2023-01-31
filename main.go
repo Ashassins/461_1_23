@@ -5,6 +5,9 @@ import (
 
     "github.com/gofiber/fiber/v2"
     "github.com/gofiber/fiber/v2/middleware/cors"
+    
+    "461_1_23/database"
+    "461_1_23/url"
 )
 
 func main() {
