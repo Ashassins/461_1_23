@@ -1,18 +1,18 @@
 // url/models.go
 package url 
 
-import {
-	"time"
+import (
+	// "time"
 	"github.com/google/uuid"
 	"github.com/jinzhu/gorm"
-}
-
-// const {
-// 	license types
-// }
+)
 
 type URL struct {
+	gorm.Model
 	ID string // or PK in go, haven't found how to do this yet
+	Status string
+
+
 	StoredURL string
 	AltURL string // Alternative URL
 	Name string
@@ -67,9 +67,9 @@ func (url URL) GetLicenseCompatible() bool {
 }
 
 func (url URL) GetIsValidURL() bool {
-	return url.IsValid
+	return url.IsValidURL
 }
 
-// func (url URL) GetLastUpdated() time.Time{
+// func (url URL) GetLastUpdated() time.Time {
 // 	return url.LastUpdated
 // }

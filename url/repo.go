@@ -19,7 +19,7 @@ func (repository *URLRepository) FindAll() []URL {
 func (repository *URLRepository) Find(id int) (URL, error) {
     var url URL
     err := repository.database.Find(&url, id).Error
-    if url.Name == "" {
+    if url.StoredURL == "" {
         err = errors.New("URL not found")
     }
     return url, err

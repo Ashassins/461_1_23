@@ -7,6 +7,7 @@ import (
 
     "github.com/jinzhu/gorm"
 	_ "github.com/lib/pq"
+    "github.com/19chonm/461_1_23/config"
 )
 
 func ConnectDB() {

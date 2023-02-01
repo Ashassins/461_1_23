@@ -76,8 +76,8 @@ func (handler *URLHandler) Update(c *fiber.Ctx) error {
         return c.Status(400).JSON(fiber.Map{"status": "error", "message": "Review your input", "data": err})
     }
 
-    url.Name = urlData.Name
-    url.Description = urlData.Description
+    url.StoredURL = urlData.StoredURL
+    url.License = urlData.License
     url.Status = urlData.Status
 
     item, err := handler.repository.Save(url)
