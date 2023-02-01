@@ -21,12 +21,13 @@ func main() {
     app := fiber.New()
     app.Use(cors.New())
 
-    // app.Get("/myEndpoint", func(c *fiber.Ctx) error {
-    //     app.Get("GPToken")
-    //     app.Get("InputURL")
-    //     // c.BaseURL() // return either npm, github, etc .com
-    // })
-
+    app.Get("/", func(c *fiber.Ctx) error {
+        url := c.Get("InputURL")
+        token := c.Get("GPToken")
+        fmt.Println(url);
+        fmt.Println(token);
+        return c.SendString("Hello, World!")
+    })
 	go func() {
 		mux := http.NewServeMux()
 		mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
