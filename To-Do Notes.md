@@ -27,3 +27,7 @@ Request endpoints are:
 Define a struct data type, populate one after sending GitHub API requests, then return it suing `c.JSON()`. See example:
 
 https://docs.gofiber.io/api/ctx#json
+
+
+Other Reference Sites:
+https://dev.to/pacheco/create-a-restful-api-with-golang-from-scratch-42g2#models

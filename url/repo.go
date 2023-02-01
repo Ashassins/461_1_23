@@ -1,51 +1,74 @@
-// url/repo.go
+// // url/repo.go
 package url
-import (
-    "errors"
+// import (
+//     "errors"
+// )
 
-    "github.com/jinzhu/gorm"
-)
+// type URLRepository struct {
+    
+// }
 
-type URLRepository struct {
-    database *gorm.DB
-}
+// func (repository *URLRepository) FindAll() []URL {
+//     return URL
+// }
+ 
+// func (repository *URLRepository) Find(id int) (URL, error) {
+//     return URL, error
+// }
 
-func (repository *URLRepository) FindAll() []URL {
-    var urls []URL
-    repository.database.Find(&urls)
-    return urls
-}
+// func (repository *URLRepository) Create(url URL) (URL, error) {
+//     return URL, error
+// }
 
-func (repository *URLRepository) Find(id int) (URL, error) {
-    var url URL
-    err := repository.database.Find(&url, id).Error
-    if url.StoredURL == "" {
-        err = errors.New("URL not found")
-    }
-    return url, err
-}
+// func (repository *URLRepository) Save(user URL) (URL, error) {
+//     return URL, error
+// }
 
-func (repository *URLRepository) Create(url URL) (URL, error) {
-    err := repository.database.Create(&url).Error
-    if err != nil {
-        return url, err
-    }
+// func (repository *URLRepository) Delete(id int) int64 {
+//     return id;
+// }
 
-    return url, nil
-}
+// // func NewURLRepository(database *gorm.DB) *URLRepository {
 
-func (repository *URLRepository) Save(user URL) (URL, error) {
-    err := repository.database.Save(user).Error
-    return user, err
-}
+// // }
 
-func (repository *URLRepository) Delete(id int) int64 {
-    count := repository.database.Delete(&URL{}, id).RowsAffected
-    return count
-}
+// // Old code from API boilerplate 
+// // func (repository *URLRepository) FindAll() []URL {
+// //     var urls []URL
+// //     // repository..Find(&urls)
+// //     return urls
+// // }
 
-func NewURLRepository(database *gorm.DB) *URLRepository {
-    return &URLRepository{
-		database: database,
-    }
-}
+// // func (repository *URLRepository) Find(id int) (URL, error) {
+// //     var url URL
+// //     // err := repository..Find(&url, id).Error
+// //     if url.StoredURL == "" {
+// //         err = errors.New("URL not found")
+// //     }
+// //     return url, err
+// // }
+
+// // func (repository *URLRepository) Create(url URL) (URL, error) {
+// //     // err := repository..Create(&url).Error
+// //     if err != nil {
+// //         return url, err
+// //     }
+
+// //     return url, nil
+// // }
+
+// // func (repository *URLRepository) Save(user URL) (URL, error) {
+// //     // err := repository..Save(user).Error
+// //     return user, err
+// // }
+
+// // func (repository *URLRepository) Delete(id int) int64 {
+// //     // count := repository..Delete(&URL{}, id).RowsAffected
+// //     return count
+// // }
+
+// // func NewURLRepository( *gorm.DB) *URLRepository {
+// //     return &URLRepository{
+// // 		// : ,
+// //     }
+// // }
