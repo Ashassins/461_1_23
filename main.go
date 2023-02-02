@@ -11,6 +11,8 @@ import (
     "time"
 
     "github.com/gofiber/fiber/v2"
+    
+    "github.com/19chonm/461_1_23/cli/commands"
     // "github.com/gofiber/fiber/v2/middleware/cors"
     
     // "github.com/19chonm/461_1_23/database"
@@ -252,6 +254,7 @@ func sendGithubRequestList[T Response](endpoint string, token string, maxPages i
 }
 
 func main() {
+	  commands.Execute() // MERGE Issue: not sure if this is in the right place
     app := fiber.New()
     api := app.Group("/api")
 
@@ -349,4 +352,3 @@ func main() {
 
     app.Listen(":3000")
 }
-
