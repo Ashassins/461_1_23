@@ -83,11 +83,15 @@ type Contributor struct {
 
 // Parse required headers and validate them
 func processHeaders(c *fiber.Ctx) (user string, repo string, token string, err error) {
-
     // get headers
     inputUrl := c.Get("InputURL")
     token = c.Get("GitHubToken")
+    // example command 
+    /*
+        curl -H "InputURL: https://github.com/qiangxue/go-rest-api" -H "GitHubToken: <YOURTOKEN>" localhost:3000/api/license
 
+        // Should RETURN:{"license":{"key":"mit","name":"MIT License","url":"https://api.github.com/licenses/mit"}}%                             
+    */
     // validate URL
     if inputUrl == "" {
         err = fmt.Errorf("InputURL not provided")
