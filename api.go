@@ -11,13 +11,7 @@ import (
     "time"
 
     "github.com/gofiber/fiber/v2"
-    // "github.com/gofiber/fiber/v2/middleware/cors"
-    
-    // "github.com/19chonm/461_1_23/database"
-    // "github.com/19chonm/461_1_23/url"
 )
-// const serverPort = 4000
-
 
 type Response interface {
     Validate() bool
@@ -135,9 +129,6 @@ func sendGithubRequestHelper(endpoint string, token string) (res *http.Response,
         statusCode = 500 // Internal server error
     } else if res.StatusCode != 200 {
         statusCode = res.StatusCode // forward API error code
-        buf := make([]byte, 1000)
-        n, _ := res.Body.Read(buf)
-        fmt.Printf("%s\n", buf[:n])
         err = fmt.Errorf("GitHub request responded with error code %d", statusCode)
     }
     return
@@ -152,7 +143,7 @@ func decodeResponse[T any](res *http.Response) (jsonRes T, err error) {
             err = nil
             return
         } else if err != nil {
-            return
+            return 
         }
     }
 }
