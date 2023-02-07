@@ -27,3 +27,19 @@ e.g. to add headers to get terminal responses
 curl -H "InputURL: https://github.com/qiangxue/go-rest-api" -H "GitHubToken: <YOURGPAT>" localhost:3000/api/license
 
 for me this returns : {"license":{"key":"mit","name":"MIT License","url":"https://api.github.com/licenses/mit"}}
+
+# Commands
+`./run install` to install Go and Python dependencies  
+`./run build`  to build the executable  
+
+The following commands require install and build beforehand:  
+`./run URL_FILE` to run main program  
+`./run test` to run test cases  
+
+# Used Stackoverflow articles
+Module : Link  
+cli/scanner : https://stackoverflow.com/questions/18159704/how-to-debug-exit-status-1-error-when-running-exec-command-in-golang  
+worker : https://stackoverflow.com/questions/25306073/always-have-x-number-of-goroutines-running-at-any-time  
+worker : https://stackoverflow.com/questions/55203251/limiting-number-of-go-routines-running  
+scanner : https://stackoverflow.com/questions/2466735/how-to-sparsely-checkout-only-one-single-file-from-a-git-repository
+
