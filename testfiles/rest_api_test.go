@@ -5,24 +5,14 @@ import (
 	"os"
 	"github.com/19chonm/461_1_23/api"
 )
-
-var inputUrl string = "https://github.com/qiangxue/go-rest-api"
-// {"license":{"key":"mit","name":"MIT License","url":"https://api.github.com/licenses/mit"}}
-
-// Expected Values for Tests
-var correctUser string = ""
-var correctRepo string = ""
-// var correctToken string = ""
-// var correctOk bool = true
-correctToken, correctOk := os.LookupEnv("GITHUB_TOKEN")
-
-var badUser string = ""
-var badRepo string = ""
-var badToken string = ""
-var badOk bool = false
+	// {"license":{"key":"mit","name":"MIT License","url":"https://api.github.com/licenses/mit"}}
 // Input URL Tests
 func TestGoodInput(t *testing.T) {
-	user, repo, token, ok := validateInput(inputUrl)
+	var goodInputUrl string = "https://github.com/qiangxue/go-rest-api"
+	var correctUser string = ""
+	var correctRepo string = ""
+	correctToken, correctOk := os.LookupEnv("GITHUB_TOKEN")
+	user, repo, token, ok := validateInput(goodInputUrl)
 	if user != "" {
 		t.Errorf("user got: %s, want: %s", user, correctUser)
 	} 
@@ -38,7 +28,12 @@ func TestGoodInput(t *testing.T) {
 }
 
 func TestBadInput(t *testing.T) {
-	user, repo, token, ok :=  validateInput(inputUrl)
+	var badInputUrl string = ""
+	var badUser string = "badUser"
+	var badRepo string = "badRepo"
+	var badToken string = "badToken"
+	var badOk bool = false
+	user, repo, token, ok :=  validateInput(badInputUrl)
 	if user != "" {
 		t.Errorf("user got: %s, want: %s", user, badUser)
 	} 
