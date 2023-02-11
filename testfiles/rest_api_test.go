@@ -3,7 +3,7 @@ package testfiles
 import (
 	"testing"
 	"os"
-	"github.com/19chonm/461_1_23/api"
+	api "github.com/19chonm/461_1_23/api"
 )
 	// {"license":{"key":"mit","name":"MIT License","url":"https://api.github.com/licenses/mit"}}
 // Input URL Tests
@@ -12,7 +12,8 @@ func TestGoodInput(t *testing.T) {
 	var correctUser string = ""
 	var correctRepo string = ""
 	correctToken, correctOk := os.LookupEnv("GITHUB_TOKEN")
-	user, repo, token, ok := validateInput(goodInputUrl)
+
+	user, repo, token, ok := api.validateInput(goodInputUrl)
 	if user != "" {
 		t.Errorf("user got: %s, want: %s", user, correctUser)
 	} 
@@ -33,7 +34,8 @@ func TestBadInput(t *testing.T) {
 	var badRepo string = "badRepo"
 	var badToken string = "badToken"
 	var badOk bool = false
-	user, repo, token, ok :=  validateInput(badInputUrl)
+
+	user, repo, token, ok := api.validateInput(badInputUrl)
 	if user != "" {
 		t.Errorf("user got: %s, want: %s", user, badUser)
 	} 
