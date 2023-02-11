@@ -5,7 +5,8 @@ import (
 	"os"
 	api "github.com/19chonm/461_1_23/api"
 )
-	// {"license":{"key":"mit","name":"MIT License","url":"https://api.github.com/licenses/mit"}}
+// {"license":{"key":"mit","name":"MIT License","url":"https://api.github.com/licenses/mit"}}
+
 // Input URL Tests
 func TestGoodInput(t *testing.T) {
 	var goodInputUrl string = "https://github.com/qiangxue/go-rest-api"
@@ -13,7 +14,7 @@ func TestGoodInput(t *testing.T) {
 	var correctRepo string = ""
 	correctToken, correctOk := os.LookupEnv("GITHUB_TOKEN")
 
-	user, repo, token, ok := api.validateInput(goodInputUrl)
+	user, repo, token, ok := api.ValidateInput(goodInputUrl)
 	if user != "" {
 		t.Errorf("user got: %s, want: %s", user, correctUser)
 	} 
@@ -35,7 +36,7 @@ func TestBadInput(t *testing.T) {
 	var badToken string = "badToken"
 	var badOk bool = false
 
-	user, repo, token, ok := api.validateInput(badInputUrl)
+	user, repo, token, ok := api.ValidateInput(badInputUrl)
 	if user != "" {
 		t.Errorf("user got: %s, want: %s", user, badUser)
 	} 
@@ -51,7 +52,6 @@ func TestBadInput(t *testing.T) {
 }
 
 // Scoring Algorithm Tests
-
 // Overall Scores
 func TestGoodScoringAlgorithm(t *testing.T) {
 
@@ -61,20 +61,26 @@ func TestBadScoringAlgorithm(t *testing.T) {
 
 }
 
+// Rating Channel
+func TestGoodRatingChannel(t *testing.T) {
+	// var thing = false
+	// if thing != false {
+	// 	t.Errorf(" ")
+	// }
+}
+
+func TestBadRatingChannel(t *testing.T) {
+	// var thing = false
+	// if thing != false {
+	// 	t.Errorf(" ")
+	// }
+}
+
 // ADD: Correctness Parameters, 
 // Num Contributors, 
 // License Compatibility, 
 // Response Time, etc.
 
-
-// // Rating Channel
-// func TestGoodRatingChannel(t *testing.T) {
-
-// }
-
-// func TestBadRatingChannel(t *testing.T) {
-
-// }
 // // Input GitHub Token Tests
 // func TestGoodToken(t *testing.T) {
 
